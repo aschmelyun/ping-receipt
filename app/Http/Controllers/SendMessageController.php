@@ -34,7 +34,7 @@ class SendMessageController extends Controller
 
         // let me know something's coming
         $printer->feed(1);
-        sleep(2);
+        sleep(0.5);
 
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setTextSize(2, 2);
