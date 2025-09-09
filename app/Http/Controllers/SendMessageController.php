@@ -29,21 +29,19 @@ class SendMessageController extends Controller
 
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setTextSize(2, 2);
-        $printer->setUnderline(true);
         $printer->setEmphasis(true);
         $printer->text("PING");
         $printer->feed(1);
         $printer->setTextSize(1, 1);
-        $printer->setUnderline(false);
         $printer->setEmphasis(false);
         $printer->text('MESSAGE FOR ANDREW SCHMELYUN');
         $printer->feed(2);
 
         $printer->setJustification(Printer::JUSTIFY_LEFT);
-        $printer->text(str_repeat('-', 80));
+        $printer->text(str_repeat('-', 42));
 
         $printer->text($request->message);
-        $printer->feed(2);
+        $printer->feed(8);
 
         $printer->cut();
         $printer->close();
