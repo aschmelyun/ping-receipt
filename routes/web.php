@@ -11,4 +11,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::post('/send-message', SendMessageController::class)->name('send-message');
+Route::post('/send-message', SendMessageController::class)
+    ->name('send-message')
+    ->middleware('throttle:10,1');
