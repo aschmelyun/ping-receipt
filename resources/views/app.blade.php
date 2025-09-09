@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         body {
-            background-color: hsla(259.4117647058824, 100%, 63%, 1);
+            background-color: #d8f6ed;
             background-image: radial-gradient(circle at 15% 85%, hsla(318, 80%, 97%, 1) 19%, transparent 84%), radial-gradient(circle at 31% 1%, hsla(161.47058823529412, 99%, 84%, 1) 12%, transparent 85%), radial-gradient(circle at 88% 87%, hsla(163, 90%, 78%, 1) 3.6400864520532363%, transparent 75.20902830975928%), radial-gradient(circle at 30% 27%, hsla(314, 91%, 59%, 1) 14%, transparent 90%);
             background-blend-mode: normal, normal, normal, normal;
         }
