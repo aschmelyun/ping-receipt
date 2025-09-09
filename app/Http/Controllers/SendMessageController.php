@@ -14,11 +14,12 @@ class SendMessageController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'message' => 'required|max:1024',
+            'message' => 'required|max:1024|regex:/^[\x00-\x7F]*$/',
             'transaction' => 'required|max:5|min:5'
         ], [
             'message.required' => 'You have to write something!',
             'message.max' => 'How did you manage to write something that long?',
+            'message.regex' => 'Sorry, only ascii characters can be used (bummer, I know).',
             'transaction.required' => 'How did you remove the transaction? Put it back!',
             'transaction.max' => 'What are you doing to the transaction?',
             'transaction.min' => 'What are you doing to the transaction?',
