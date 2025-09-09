@@ -36,17 +36,23 @@ class SendMessageController extends Controller
         $printer->setTextSize(2, 2);
         $printer->setEmphasis(true);
         $printer->text("PING");
-        $printer->feed(1);
+        $printer->feed(2);
         $printer->setTextSize(1, 1);
         $printer->setEmphasis(false);
         $printer->text('MESSAGE FOR ANDREW SCHMELYUN');
-        $printer->feed(2);
+        $printer->feed(1);
 
         $printer->setJustification(Printer::JUSTIFY_LEFT);
         $printer->text(str_repeat('-', 42));
 
+        $printer->feed(2);
+        $printer->text('TIMESTAMP:' . str_repeat(' ', 15) . now()->format('m/d/y h:i A'));
+        $printer->feed(1);
+        $printer->text('TRANSACTION #:' . str_repeat(' ', 23) . $request->transaction);
+        $printer->feed(4);
+
         $printer->text($request->message);
-        $printer->feed(8);
+        $printer->feed(4);
 
         $printer->cut();
         $printer->close();
