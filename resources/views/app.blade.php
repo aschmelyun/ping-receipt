@@ -81,7 +81,6 @@
                                     placeholder="Type your message here..."
                                     class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent resize-none"
                                     oninput="updateCharCount()"
-                                    pattern="[\x00-\x7F]*"
                                 >{{ old('message') }}</textarea>
                                 <input type="hidden" id="transaction" name="transaction" value="{{ $transaction }}">
                             </div>

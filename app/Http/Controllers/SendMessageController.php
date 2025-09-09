@@ -14,7 +14,7 @@ class SendMessageController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'message' => 'required|max:1024|regex:/^[\x00-\x7F]*$/',
+            'message' => 'required|max:1024|regex:/^[\x00-\x7F\']*$/',
             'transaction' => 'required|max:5|min:5'
         ], [
             'message.required' => 'You have to write something!',
