@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="text-center text-xs py-4 opacity-50">
-            <p class="mb-1">Basic text only (no emojis, special symbols, etc)</p>
+            <p class="mb-1">Basic text only (no emojis, special symbols)</p>
             <p>Printer text width is 42 characters wide</p>
         </div>
     </div>
