@@ -13,6 +13,10 @@ class SendMessageController extends Controller
      */
     public function __invoke(Request $request)
     {
+        // Convert smart quotes to regular apostrophes
+        $message = str_replace(['"', '“', '”', "'", '‘', '’'], ['"', '"', '"', "'", "'", "'"], $request->message);
+        $request->merge(['message' => $message]);
+
         $request->validate([
             'message' => 'required|max:1024|regex:/^[\x00-\x7F\']*$/',
             'transaction' => 'required|max:5|min:5'
