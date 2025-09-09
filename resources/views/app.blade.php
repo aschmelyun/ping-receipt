@@ -25,7 +25,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 font-mono">
+<body class="bg-gray-100 min-h-screen flex items-start md:items-center justify-center p-4 font-mono">
     <div class="w-full max-w-md">
 
         <div class="mb-4 space-y-2">
@@ -76,6 +76,7 @@
                                     name="message"
                                     id="message"
                                     rows="6"
+                                    cols="42"
                                     maxlength="1024"
                                     placeholder="Type your message here..."
                                     class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent resize-none"
@@ -111,6 +112,10 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div class="text-center text-xs py-4 opacity-50">
+            <p class="mb-1">Basic text only (no emojis, special symbols, etc)</p>
+            <p>Printer text width is 42 characters wide</p>
         </div>
     </div>
 

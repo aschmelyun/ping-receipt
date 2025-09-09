@@ -19,7 +19,7 @@ class SendMessageController extends Controller
         ], [
             'message.required' => 'You have to write something!',
             'message.max' => 'How did you manage to write something that long?',
-            'message.regex' => 'Sorry, only ascii characters can be used (bummer, I know).',
+            'message.regex' => 'Sorry, basic ascii characters only (bummer, I know).',
             'transaction.required' => 'How did you remove the transaction? Put it back!',
             'transaction.max' => 'What are you doing to the transaction?',
             'transaction.min' => 'What are you doing to the transaction?',
