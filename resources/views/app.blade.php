@@ -59,11 +59,11 @@
                     <div class="text-xs text-gray-600 mb-1">
                         <div class="flex justify-between">
                             <span>TIMESTAMP:</span>
-                            <span id="current-time">{{ now()->format('m/d/y h:i A') }}</span>
+                            <span id="current-time">{{ $timestamp }}</span>
                         </div>
                         <div class="flex justify-between">
                             <span>TRANSACTION #:</span>
-                            <span>{{ str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT) }}</span>
+                            <span>{{ $transaction }}</span>
                         </div>
                     </div>
 
@@ -81,6 +81,7 @@
                                     class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent resize-none"
                                     oninput="updateCharCount()"
                                 >{{ old('message') }}</textarea>
+                                <input type="hidden" id="transaction" name="transaction" value="{{ $transaction }}">
                             </div>
 
                             {{-- Character Counter --}}
@@ -93,10 +94,10 @@
 
                     {{-- Receipt Footer Info --}}
                     <div class="text-xs text-gray-600 space-y-1 mb-4">
-                        <div class="text-center">***********************************************</div>
+                        <div class="text-center">***************************************</div>
                         <div class="text-center font-bold">THANKS FOR STOPPING BY</div>
-                        <div class="text-center">Your message will be sent directly to my desk</div>
-                        <div class="text-center">***********************************************</div>
+                        <div class="text-center">Your message will be sent to my desk</div>
+                        <div class="text-center">***************************************</div>
                     </div>
 
                     {{-- Submit Button --}}

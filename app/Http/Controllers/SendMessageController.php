@@ -15,9 +15,13 @@ class SendMessageController extends Controller
     {
         $request->validate([
             'message' => 'required|max:1024',
+            'transaction' => 'required|max:5|min:5'
         ], [
             'message.required' => 'You have to write something!',
             'message.max' => 'How did you manage to write something that long?',
+            'transaction.required' => 'How did you remove the transaction? Put it back!',
+            'transaction.max' => 'What are you doing to the transaction?',
+            'transaction.min' => 'What are you doing to the transaction?',
         ]);
 
         $connector = new FilePrintConnector('/dev/usb/lp0');
