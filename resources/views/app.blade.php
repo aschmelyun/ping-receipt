@@ -55,7 +55,7 @@
                 </div>
 
                 {{-- Receipt Body --}}
-                <div class="px-6 py-4">
+                <div class="p-4">
                     <div class="text-xs text-gray-600 mb-1">
                         <div class="flex justify-between">
                             <span>TIMESTAMP:</span>
@@ -71,15 +71,14 @@
                         <form action="{{ route('send-message') }}" method="POST" class="space-y-3" id="messageForm">
                             @csrf
 
-                            <div>
+                            <div class="flex items-center justify-center">
                                 <textarea
                                     name="message"
                                     id="message"
                                     rows="6"
-                                    cols="42"
                                     maxlength="1024"
                                     placeholder="Type your message here..."
-                                    class="w-full px-3 py-2 text-sm border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent resize-none"
+                                    class="w-[42ch] font-mono p-2 box-content text-sm border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent resize-none"
                                     oninput="updateCharCount()"
                                 >{{ old('message') }}</textarea>
                                 <input type="hidden" id="transaction" name="transaction" value="{{ $transaction }}">
