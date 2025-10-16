@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Receipt;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
 
@@ -29,12 +30,14 @@ class SendMessageController extends Controller
             'transaction.min' => 'What are you doing to the transaction?',
         ]);
 
+	    Receipt::create($request->only(['transaction', 'message']));
+
         $connector = new FilePrintConnector('/dev/usb/lp0');
         $printer = new Printer($connector);
 
         // let me know something's coming
         $printer->feed(1);
-        sleep(0.5);
+        sleep(1);
 
         $printer->setJustification(Printer::JUSTIFY_CENTER);
         $printer->setTextSize(2, 2);
