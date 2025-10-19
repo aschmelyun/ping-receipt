@@ -2,7 +2,7 @@
 
 Welcome to the repo for my anonymous [ping](https://ping.aschmelyun.com) site that prints out a receipt on my desk.
 
-If you're coming from [my video]() and would like to explore this project's source code, feel free! It's pretty basic, most of the functionality lies inside of the `app/Http/Controllers/SendMessageController.php` class.
+If you're coming from [my video](https://www.youtube.com/watch?v=7KtyekivpRM) and would like to explore this project's source code, feel free! It's pretty basic, most of the functionality lies inside of the `app/Http/Controllers/SendMessageController.php` class.
 
 If you'd like to set this project up for yourself, follow these instructions:
 
