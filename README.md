@@ -1,61 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Ping Receipt
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to the repo for my anonymous [ping](https://ping.aschmelyun.com) site that prints out a receipt on my desk.
 
-## About Laravel
+If you're coming from [my video]() and would like to explore this project's source code, feel free! It's pretty basic, most of the functionality lies inside of the `app/Http/Controllers/SendMessageController.php` class.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+If you'd like to set this project up for yourself, follow these instructions:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Step 1.** Gather your hardware.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+You'll need:
 
-## Learning Laravel
+- An Epson receipt printer (or another brand that can use ESC/POS formatting). You can find older models like the TM-T88IV on eBay for about $50 USD.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Some piece of hardware running Linux with an open USB port. Performance-wise it just needs enough juice to power Docker, most Raspberry Pis should work well enough.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Get everything set up, powered on, and connected together.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Step 2.** Clone this repo.
 
-## Laravel Sponsors
+On your Linux hardware above, clone this repo into a place you'll be able to easily access and remember. Open up a terminal window into that location, and run the following command:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```sh
+docker build -t ping-app:latest .
+```
 
-### Premium Partners
+That will build the Docker image needed for the application, and then to run it, use the included `start.sh` script.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+You should now be able to visit the site at `localhost:8000`!
 
-## Contributing
+**Step 3.** Open up public traffic (optional).
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+If you want to open up your own ping site to public traffic, you'll likely need to use a tunnelling service. I recommend either:
 
-## Code of Conduct
+- [ngrok](https://ngrok.com)
+- [cloudflare tunnels](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Follow the documentation for either of them, installing the required daemons on your hardware and ensuring that the forwarded port is the same one exposed from the start.sh command above (e.g. `:8000`).
